@@ -1,7 +1,7 @@
 /*
 This is a CPP program to get an upper bound for an element.
 
-It works on a condition that the array vector on which it works must be sorted.
+It works on a condition that the array/vector on which it works must be sorted.
 
 
 This returns the location of the element in the vector just greater than the given element.
