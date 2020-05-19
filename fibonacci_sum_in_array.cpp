@@ -46,7 +46,7 @@ bool checkArray(int a[],int n) {	//function to check if the array contains the r
 
 int main() {
 
-int n;		// input the size of the array to be checked
+int n ;		// input the size of the array to be checked
 
 cin>>n;		
 
