@@ -40,8 +40,39 @@ int minseacrhwindow(string s,string q) {
 		}
 
 
+		else {
+			int a=l+1;
+			int f=0;
+			
+			while(l<r-h) {
+				for(int i=0;i<h;i++) {
+				if(count(s.begin()+l,s.begin()+r,q[i])>0) {
+							continue;
+							}
+				else {
+						v.eb(r-l+1);
+						f=1;
+						break;					
+					}
+
+				}
+
+
+				if(f==1) {
+						break;
+					}
+
+				l++;
+			}
+		}
+
+
 
 	}
+
+	sort(v.begin(),v.end());
+
+	return v[0];
 
 
 }
