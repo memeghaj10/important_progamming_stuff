@@ -30,7 +30,7 @@ bool isSubsetSum(int set[],int n,int sum) {
 				subset[i][j]=subset[i-1][j];	//if the current sum is less than the current element, we copy the previous result
 			}
 			if(j>=set[i-1]) {		// else, we move (sum-element) columns backs in the previous row and check for the answers at that place, and copy the same.
-				subset[i][j]=subset[i-1][j-set[i-1]];
+				subset[i][j]=max(subset[i-1][j-set[i-1]],subset[i-1][j]);
 			}
 		}
 	}
