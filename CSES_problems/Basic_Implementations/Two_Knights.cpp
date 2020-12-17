@@ -7,7 +7,7 @@
     #include <chrono>
     #include <complex>
     #define endl "\n"
-    #define ll long long int
+    #define int long long int
     #define vi vector<int>
     #define vll vector<ll>
     #define vvi vector < vi >
@@ -24,23 +24,7 @@
     
     using namespace std;
 
-    int fact(int n); 
-  
-int ncr(int n, int r) 
-{ 
-    return fact(n) / (fact(r) * fact(n - r)); 
-} 
-  
-// Returns factorial of n 
-int fact(int n) 
-{ 
-    int res = 1; 
-    for (int i = 2; i <= n; i++) 
-        res = res * i; 
-    return res; 
-} 
-
-    int main()
+    signed main()
     {
 
     #ifndef ONLINE_JUDGE
@@ -48,17 +32,17 @@ int fact(int n)
         freopen("output.txt","w",stdout);
     #endif
     
-    int n;
+    int k;
 
-    cin>>n;
+    cin>>k;
 
-    int t=n;
+  
 
-   for(int i=1;i<=n;i++) {
+   for(int n=1;n<=k;n++) {
 
-        int y=i*i;
+        //int y=i*i;
 
-        cout<<(y*(y-1))/2-ncr(i,2)*ncr(i,3)<<endl;
+        cout << n * n * (n * n - 1) / 2 - 4 * (n - 1) * (n - 2) << endl;
 
    }
 
