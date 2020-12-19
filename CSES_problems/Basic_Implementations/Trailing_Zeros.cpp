@@ -1,4 +1,4 @@
-  #include <bits/stdc++.h>
+    #include <bits/stdc++.h>
     #include <cstdio>
     #include <cstring>
     #include <cmath>
@@ -31,18 +31,18 @@
     #endif
 
 
-        long long int n;
+        ll n;
 
         cin>>n;
 
-        ll p=1;
+        int c=0;
 
-        for(int i=1;i<=n;i++) {
-            p=((p%mod)*(2))%mod;
+
+        for(int i=1;pow(5,i)<=n;i++) {
+            c+=n/pow(5,i);
         }
 
-        cout<<p;
-
+        cout<<c;
 
         return 0;
     }
