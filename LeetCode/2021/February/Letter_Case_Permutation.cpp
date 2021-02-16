@@ -1,5 +1,5 @@
 class Solution {
-public:
+public :
     vector<string> letterCasePermutation(string s) {
         
         vector<string> vs;
