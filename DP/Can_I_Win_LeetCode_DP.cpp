@@ -21,25 +21,25 @@ public:
 
     bool solver(string state, int val) {
         
-        if(dp.find(state)!=dp.end()) {
+        if(dp.find(state)!=dp.end()) {              //finding if the state has already been calculated
             if(dp[state].find(val)!=dp[state].end()) {
                 return dp[state][val];
             }
         }
         
-        dp[state][val]=0;
+        dp[state][val]=0;   //initialising
         
         for(int i=state.size()-1;i>=0;i--) {
-            if(state[i]=='1') {
-                if(val-i-1<=0) {
+            if(state[i]=='1') {     //out of all the remaning numbers, we select one of them.
+                if(val-i-1<=0) {    // if simply after removing this number, we are able to achieve the target, we consider it to be possible
                     return dp[state][val]=1;
                 }
                 
-                else {
+                else {      //if not possible
                     string tmp=state;
-                    tmp[i]='0';
+                    tmp[i]='0'; //we calculate a temporary result when we have taken both cases, included the number, and not included the number.
                     dp[state][val]=dp[state][val]||!solver(tmp,val-i-1);
-                    if(dp[state][val]) {
+                    if(dp[state][val]) {    // if we get the answer, we return if possible or not.
                         break;
                     }
                 }
@@ -47,7 +47,7 @@ public:
         }
         
         
-        return dp[state][val];
+        return dp[state][val];  //returing the answer.
     }
     
     bool canIWin(int mx, int tot) {
@@ -63,16 +63,16 @@ public:
         int i=0;
         string s="";
         
-        while(i<mx) {
+        while(i<mx) {       //we will use this to first indicate that all mx integers are available.
             s+="1";
             i++;
         }
         
         for(int i=0;i<mx;i++) {
             string tmp=s;
-            tmp[i]='0';
-            if(!solver(tmp,tot-i-1)) {
-                return 1;
+            tmp[i]='0';             //calculating result when Player-1 has used the ith number
+            if(!solver(tmp,tot-i-1)) {      //if it is not feasible for Player-2 to play, Player-1 wins
+                return 1;   
             }
         }
         
