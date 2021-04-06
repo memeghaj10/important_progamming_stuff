@@ -19,6 +19,7 @@ public:
                 c+=(abs(y-a[i]));
             }
         
+        
         return c;
         
     }
