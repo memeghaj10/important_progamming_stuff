@@ -1,3 +1,14 @@
+    /*
+
+Given an array of n integers, your task is to process q queries of the following types:
+
+1. update the value at position k to u
+
+2. what is the minimum value in range [a,b]?
+
+    */
+
+
     #include <bits/stdc++.h>
     #include <cstdio>
     #include <cstring>
