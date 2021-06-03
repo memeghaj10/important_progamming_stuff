@@ -15,7 +15,6 @@
     Explanation: The graph is shown.
     The cheapest price from city 0 to city 2 with at most 0 stop costs 500, as marked blue in the picture.
 
-    
 */
 
 
