@@ -1,0 +1,46 @@
+/*
+
+Swim in Rising Water
+
+On an N x N grid, each square grid[i][j] represents the elevation at that point (i,j).
+
+Now rain starts to fall. At time t, the depth of the water everywhere is t. You can swim from a square to another 4-directionally adjacent square if and only if the elevation of both squares individually are at most t. You can swim infinite distance in zero time. Of course, you must stay within the boundaries of the grid during your swim.
+
+You start at the top left square (0, 0). What is the least time until you can reach the bottom right square (N-1, N-1)?
+
+*/
+
+
+/*Approach 1: Heap: BFS + priority_queue [1]
+BFS + Priority_Queue: Time/Space complexity: O(N^2logN); O(N^2)
+Time Complexity: O(N^2log N)
+We may expand O(N^2 logN)) nodes, and each one requires O(logN) time to perform the heap operations.
+Space Complexity: O(N^2), the maximum size of the heap.
+*/
+
+class Solution {
+public:
+    int swimInWater(vector<vector<int>>& grid) {
+        const int n = grid.size();
+        priority_queue<pair<int, int> > pq;
+        pq.emplace(-grid[0][0], 0*n+0);
+        vector<int> seen(n*n,0);
+        seen[0*n+0]=1;
+        vector<int> dirs{-1,0,1,0,-1};
+        while(!pq.empty()){
+            auto cur = pq.top();pq.pop();
+            int t = -cur.first;
+            int r = cur.second/n;
+            int c = cur.second%n;
+            if(r == n - 1 && c == n - 1) return t;
+            for(int d = 0;  d < 4; d++){
+                int nr = r + dirs[d];
+                int nc = c + dirs[d+1];
+                if(nr <0 || nr >= n || nc < 0 || nc >= n || seen[nr*n + nc] == 1) continue;
+                seen[nr*n + nc] = 1;
+                pq.emplace(-max(t, grid[nr][nc]), nr*n + nc);
+            }            
+        }
+        return n*n;        
+    }
+};
