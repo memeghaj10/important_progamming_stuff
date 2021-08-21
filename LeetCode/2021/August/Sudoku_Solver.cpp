@@ -9,6 +9,7 @@ public:
                     emptyCells.emplace_back(r, c);
                 } else {
                     int val = board[r][c] - '0';
+                    
                     int boxPos = (r / 3) * 3 + (c / 3);
                     rows[r] |= 1 << val;
                     cols[c] |= 1 << val;
