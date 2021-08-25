@@ -7,6 +7,7 @@ public:
         if(i*i<=c) {
                 j= sqrt(c-i*i);
         }
+        
          else {
              break;
          }
